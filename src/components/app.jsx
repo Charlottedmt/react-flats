@@ -10,20 +10,22 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedFlat: ""
+      selectedFlat: flats[0]
     }
   }
 
-  changeSelectedFlat = () => {
-
+  selectedFlat = (index) => {
+    this.setState({
+      selectedFlat: flats[index]
+    });
   }
   render() {
     return (
       <div>
         <FlatsList flats={flats}/>
       <div className="map-container">
-
-        </div>
+        <Map />
+      </div>
 
       </div>
     );
