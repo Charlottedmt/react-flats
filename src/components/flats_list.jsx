@@ -7,7 +7,8 @@ class FlatsList extends Component {
   }
 
   renderList = () => {
-    return this.props.flats.map((flat, index) => {
+    const { flats } = this.props
+    return flats.map((flat, index) => {
       return <Flat flat={flat} key={flat.lat} index={index} />
     });
   }

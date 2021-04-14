@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class Flat extends Component {
+
   render() {
     return (
         <div className="card" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(${this.props.flat.imageUrl})`}}>
