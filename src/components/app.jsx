@@ -14,7 +14,8 @@ class App extends Component {
     }
   }
 
-  selectedFlat = (index) => {
+  selectFlat = (index) => {
+    console.log("hello")
     this.setState({
       selectedFlat: flats[index]
     });
@@ -23,9 +24,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <FlatsList flats={flats}/>
+        <FlatsList flats={flats} selectFlat={this.selectFlat}/>
       <div className="map-container">
-          <Map />
+        <Map lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng} />
       </div>
 
       </div>

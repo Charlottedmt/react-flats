@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 
 // import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
 // import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
@@ -24,11 +24,11 @@ class Map extends Component {
 
     state = {
       viewport: {
-        width: 400,
-        height: 400,
-        latitude: 37.7577,
-        longitude: -122.4376,
-        zoom: 8
+      width: 500,
+      height: 400,
+      latitude: this.props.lat,
+      longitude: this.props.lng,
+      zoom: 8
       }
     };
 
@@ -38,7 +38,11 @@ class Map extends Component {
         {...this.state.viewport}
         onViewportChange={(viewport) => this.setState({ viewport })}
         mapboxApiAccessToken="pk.eyJ1IjoiY2hhcmxvdHRlZG10IiwiYSI6ImNrbWx0Y25tODFkeGMyb3Bmem5jdmVycDMifQ.H_Wil4_qH-Jl9ZPYV3EOCg"
-      />
+      >
+      <Marker latitude={this.props.lat} longitude={this.props.lng} offsetLeft={-20} offsetTop={-10}>
+          <img className="pin" src="pin.png"/>
+      </Marker>
+      </ReactMapGL>
     );
   }
 }

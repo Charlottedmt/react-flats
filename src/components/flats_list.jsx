@@ -9,13 +9,13 @@ class FlatsList extends Component {
   renderList = () => {
     const { flats } = this.props
     return flats.map((flat, index) => {
-      return <Flat flat={flat} key={flat.lat} index={index} />
+      return <Flat flat={flat} key={flat.lat} index={index} selectFlat={this.props.selectFlat} />
     });
   }
 
   render() {
     return (
-      <div className="flat-list" onClick={this.handleClick}>
+      <div className="flat-list">
         {this.renderList()}
       </div>
     );
